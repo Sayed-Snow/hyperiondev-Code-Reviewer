@@ -17,7 +17,7 @@ def say_number(numeral):
         group_words = ''
 
         if hundreds > 0:
-            group_words += f"{numbers[hundreds]} Hundred"
+            group_words += f"{numbers[hundreds]} Hundred and"
             if tens_and_ones > 0:
                 group_words += ' '
 
@@ -32,12 +32,12 @@ def say_number(numeral):
                     group_words += f"-{numbers[ones_place]}"
 
         if group_index > 0 and group_words:
-            group_words += f" {groups[group_index]}"
+            group_words += f" {groups[group_index]},"
 
         words = f"{group_words} {words}"
         numeral //= 1000
         group_index += 1
 
-    return words.strip() + '.'
+    return words
 
-print(say_number(6))
+print(say_number(90376000010012))
